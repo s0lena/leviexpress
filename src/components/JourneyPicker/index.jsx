@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
 
+
+const [fromCity, setFromCity] = useState('');
+
+
+const handleSubmit= (event) => {
+  event.preventDefault();
+  console.log('Odesilam formulář s cestou')
+}
+
 export const JourneyPicker = ({ onJourneyChange }) => (
   <div className="journey-picker container">
     <h2 className="journey-picker__head">Kam chcete jet?</h2>
     <div className="journey-picker__body">
-      <form className="journey-picker__form">
+      <form className="journey-picker__form" onSubmit={handleSubmit}>
         <label>
           <div className="journey-picker__label">Odkud:</div>
           <select>

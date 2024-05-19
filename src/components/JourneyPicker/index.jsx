@@ -28,16 +28,13 @@ export const JourneyPicker = ({ onJourneyChange }) => {
   const [date, setDate] = useState('');
   const [cities, setCities] = useState([]);
   const [dates, setDates] = useState([]);
-  const [submitted, setSubmitted] = useState(false);
-
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const fetchJourneys = async () => {
       const resp = await fetch(`https://apps.kodim.cz/daweb/leviexpress/api/journey?fromCity=${fromCity}&toCity=${toCity}&date=${date}`)
       const data = await resp.json();
-      console.log(data);
-      console.log(data.results)
       onJourneyChange(data.results);
       
   };
@@ -52,13 +49,11 @@ export const JourneyPicker = ({ onJourneyChange }) => {
       );
       const data = await resp.json();
       setCities(data.results);
-      console.log(data);
     };
     const fetchDates = async () => {
       const resp = await fetch('https://apps.kodim.cz/daweb/leviexpress/api/dates');
       const data = await resp.json();
       setDates(data.results);
-      console.log(data.results);
     };
     fetchCities();
     fetchDates();

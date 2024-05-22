@@ -18,7 +18,7 @@ export const ReservationPage = () => {
     fetchReservation();
   },
   [])
-  console.log(reservation)
+  
   
   return (
     <main>

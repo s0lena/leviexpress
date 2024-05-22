@@ -1,8 +1,8 @@
 import { JourneyDetail } from '../../components/JourneyDetail';
 import { JourneyPicker } from '../../components/JourneyPicker';
-import { SelectedSeat } from '../../components/SelectedSeat';
-import { SeatSelection } from '../../components/SeatSelection';
-import { useEffect, useState } from 'react';
+/*import { SelectedSeat } from '../../components/SelectedSeat';*/
+import { SeatPicker } from '../../components/SeatPicker';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -32,8 +32,6 @@ export const HomePage = () => {
           }
         );
         const data = await resp.json();
-        console.log(data.results.reservationId);
-        console.log('Working!')
         navigate(`/reservation/${data.results.reservationId}`);
       };
     
@@ -43,8 +41,9 @@ export const HomePage = () => {
     <main>
       <JourneyPicker onJourneyChange={handleJourneyChange} />
       {journey && <><JourneyDetail journey={journey}/></>} 
-      {journey &&<SelectedSeat number={journey.autoSeat}/>}
-      {/*{journey &&<SeatSelection/>}*/}
+      {/*{journey &&<SelectedSeat number={journey.autoSeat}/>}*/}
+      <SeatPicker/>
+      
       <div className="controls container">
         <button className="btn btn--big" type="button" onClick={handleBuy}>Rezervovat</button>
       </div>

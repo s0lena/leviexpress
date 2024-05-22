@@ -35,14 +35,14 @@ export const HomePage = () => {
         navigate(`/reservation/${data.results.reservationId}`);
       };
     
-    
+    console.log(journey);
   
   return (
     <main>
       <JourneyPicker onJourneyChange={handleJourneyChange} />
       {journey && <><JourneyDetail journey={journey}/></>} 
       {/*{journey &&<SelectedSeat number={journey.autoSeat}/>}*/}
-      <SeatPicker/>
+      {journey&& <SeatPicker seats={journey.seats}/> }
       
       <div className="controls container">
         <button className="btn btn--big" type="button" onClick={handleBuy}>Rezervovat</button>

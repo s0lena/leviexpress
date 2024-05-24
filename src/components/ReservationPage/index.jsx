@@ -13,7 +13,7 @@ export const ReservationPage = () => {
       const resp = await fetch(`https://apps.kodim.cz/daweb/leviexpress/api/reservation?id=${id}`)
       const data = await resp.json();
       setReservation(data.results)
-      
+        
     };
     fetchReservation();
   },

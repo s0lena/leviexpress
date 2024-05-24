@@ -28,7 +28,7 @@ export const HomePage = () => {
             },
             body: JSON.stringify({
               action: "create",
-              seat: journey.autoSeat,
+              seat: userSeat,
               journeyId: journey.journeyId,
             }),
           }
@@ -44,7 +44,7 @@ export const HomePage = () => {
       <JourneyPicker onJourneyChange={handleJourneyChange} />
       {journey && <><JourneyDetail journey={journey}/></>} 
       {/*{journey &&<SelectedSeat number={journey.autoSeat}/>}*/}
-      {journey&& <SeatPicker seats={journey.seats} selectedSeat={userSeat}/> }
+      {journey&& <SeatPicker seats={journey.seats} selectedSeat={userSeat} onSeatSelected={setUserseat}/> }
       
       <div className="controls container">
         <button className="btn btn--big" type="button" onClick={handleBuy}>Rezervovat</button>

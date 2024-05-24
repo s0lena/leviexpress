@@ -11,9 +11,11 @@ export const HomePage = () => {
 
   const [journey, setJourney] = useState(null);
   const navigate=useNavigate();
+  const [userSeat, setUserseat] = useState(null);
 
   const handleJourneyChange = (journeyData) => {
-    setJourney(journeyData)
+    setJourney(journeyData);
+    setUserseat(journeyData.autoSeat);
   }
 
   const handleBuy = async() => {
@@ -35,14 +37,14 @@ export const HomePage = () => {
         navigate(`/reservation/${data.results.reservationId}`);
       };
     
-    console.log(journey);
+  
   
   return (
     <main>
       <JourneyPicker onJourneyChange={handleJourneyChange} />
       {journey && <><JourneyDetail journey={journey}/></>} 
       {/*{journey &&<SelectedSeat number={journey.autoSeat}/>}*/}
-      {journey&& <SeatPicker seats={journey.seats}/> }
+      {journey&& <SeatPicker seats={journey.seats} selectedSeat={userSeat}/> }
       
       <div className="controls container">
         <button className="btn btn--big" type="button" onClick={handleBuy}>Rezervovat</button>

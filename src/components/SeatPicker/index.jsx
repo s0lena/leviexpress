@@ -3,14 +3,14 @@ import { Seat } from "../Seat";
 import "./style.css"
 import { SeatRow } from "../SeatRow";
 
-export const SeatPicker = ({seats}) => {
+export const SeatPicker = ({seats, selectedSeat}) => {
   
     return (
     <>
     <div className="seat-picker container">
       <h2>Vyberte sedadlo</h2>
       <div className="seats">
-      {seats.map((seats, index)=> <SeatRow key={index} row={seats}/>)}
+      {seats.map((seats, index)=> <SeatRow key={index} row={seats} rowSelectedSeat={selectedSeat}/>)}
       </div>
     </div>
     
